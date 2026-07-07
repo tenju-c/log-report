@@ -1,0 +1,47 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 3 items
+
+../tests/test_outputs.py .FF                                             [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_unique_clients ______________________________
+
+    def test_unique_clients():
+        """Success criterion 3: The report contains the correct set of unique client IPs."""
+        report = load_report()
+    
+>       assert sorted(report["unique_clients"]) == sorted(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+            [
+                "192.168.0.1",
+                "192.168.0.2",
+                "10.0.0.5",
+            ]
+        )
+E       KeyError: 'unique_clients'
+
+/tests/test_outputs.py:27: KeyError
+______________________________ test_popular_pages ______________________________
+
+    def test_popular_pages():
+        """Success criterion 4: The report contains the correct page request counts."""
+        report = load_report()
+    
+>       assert report["popular_pages"] == {
+               ^^^^^^^^^^^^^^^^^^^^^^^
+            "/index.html": 3,
+            "/about.html": 2,
+            "/api/login": 1,
+        }
+E       KeyError: 'popular_pages'
+
+/tests/test_outputs.py:40: KeyError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_request_count
+FAILED ../tests/test_outputs.py::test_unique_clients - KeyError: 'unique_clie...
+FAILED ../tests/test_outputs.py::test_popular_pages - KeyError: 'popular_pages'
+========================= 2 failed, 1 passed in 0.01s ==========================

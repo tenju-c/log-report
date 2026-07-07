@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 3 items
+
+../tests/test_outputs.py F..                                             [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_request_count ______________________________
+
+    def test_request_count():
+        """Success criterion 2: The report contains the correct total number of requests."""
+        report = load_report()
+    
+>       assert report["total_requests"] == 6, (
+            "total_requests should equal the number of requests in access.log"
+        )
+E       AssertionError: total_requests should equal the number of requests in access.log
+E       assert 5 == 6
+
+/tests/test_outputs.py:18: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_unique_clients
+PASSED ../tests/test_outputs.py::test_popular_pages
+FAILED ../tests/test_outputs.py::test_request_count - AssertionError: total_r...
+========================= 1 failed, 2 passed in 0.01s ==========================

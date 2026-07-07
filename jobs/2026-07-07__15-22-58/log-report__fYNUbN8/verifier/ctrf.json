@@ -1,0 +1,53 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 1,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783452186.9077318,
+            "stop": 1783452186.9172342
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_request_count",
+                "status": "passed",
+                "duration": 0.0003580840002541663,
+                "start": 1783452186.9116092,
+                "stop": 1783452186.9120972,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unique_clients",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0002890839998599404,
+                "start": 1783452186.912172,
+                "stop": 1783452186.916126,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unique_clients():\n        \"\"\"Success criterion 3: The report contains the correct set of unique client IPs.\"\"\"\n        report = load_report()\n    \n>       assert sorted(report[\"unique_clients\"]) == sorted(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^\n            [\n                \"192.168.0.1\",\n                \"192.168.0.2\",\n                \"10.0.0.5\",\n            ]\n        )\nE       KeyError: 'unique_clients'\n\n/tests/test_outputs.py:27: KeyError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_popular_pages",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00026216599962936016,
+                "start": 1783452186.9161942,
+                "stop": 1783452186.917117,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_popular_pages():\n        \"\"\"Success criterion 4: The report contains the correct page request counts.\"\"\"\n        report = load_report()\n    \n>       assert report[\"popular_pages\"] == {\n               ^^^^^^^^^^^^^^^^^^^^^^^\n            \"/index.html\": 3,\n            \"/about.html\": 2,\n            \"/api/login\": 1,\n        }\nE       KeyError: 'popular_pages'\n\n/tests/test_outputs.py:40: KeyError",
+                "message": "The test failed in the call phase"
+            }
+        ]
+    }
+}

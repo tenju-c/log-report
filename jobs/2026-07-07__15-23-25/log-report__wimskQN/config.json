@@ -1,0 +1,11 @@
+{
+    "task": {
+        "path": "."
+    },
+    "trial_name": "log-report__wimskQN",
+    "trials_dir": "jobs/2026-07-07__15-23-25",
+    "agent": {
+        "name": "nop"
+    },
+    "job_id": "5750fc1f-c0ed-41a6-a762-357b9c61034c"
+}
